@@ -86,7 +86,6 @@ class DatasetSource:
 
     id: str
     format: str
-    purpose: str
     filename: str
     url: str
     sha256: str | None
@@ -99,7 +98,10 @@ class DatasetSource:
         """Enforce invariants regardless of construction method."""
 
         required_strings = (
-            "id", "format", "purpose", "filename", "url"
+            "id",
+            "format",
+            "filename",
+            "url",
         )
 
         for field in required_strings:
@@ -109,7 +111,9 @@ class DatasetSource:
                 raise ValueError(f"Invalid source field: {field}")
 
         optional_strings = (
-            "source_page", "license", "attribution"
+            "source_page",
+            "license",
+            "attribution",
         )
 
         for field in optional_strings:
@@ -130,20 +134,37 @@ class DatasetSource:
             raise ValueError("Source definition must be an object")
 
         required = (
-            "id", "format", "purpose",
-            "filename", "url", "sha256"
+            "id",
+            "format",
+            "filename",
+            "url",
+            "sha256",
         )
 
         optional = (
-            "source_page", "license", "attribution"
+            "source_page",
+            "license",
+            "attribution",
         )
 
+        # Ensure all required fields are present.
         for field in required:
             if field not in data:
                 raise ValueError(
                     f"Missing required source field: {field}"
                 )
 
+        # Reject unknown or obsolete fields.
+        allowed = set(required) | set(optional)
+        unknown = set(data) - allowed
+
+        if unknown:
+            raise ValueError(
+                f"Unknown source fields: {sorted(unknown)}"
+            )
+
+        # Construct the immutable source object.
+        # __post_init__ performs field-level validation.
         return cls(
             **{field: data[field] for field in required},
             **{field: data.get(field) for field in optional},

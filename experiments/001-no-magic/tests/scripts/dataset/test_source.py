@@ -14,7 +14,6 @@ class TestDatasetSource(unittest.TestCase):
         self.valid_source = {
             "id": "test-001",
             "format": "txt",
-            "purpose": "txt",
             "filename": "example.txt",
             "url": "https://example.org/example.txt",
             "sha256": None,
@@ -75,7 +74,7 @@ class TestDatasetSource(unittest.TestCase):
     def test_invalid_required_types(self):
         invalid_values = [None, 123, [], {}, ""]
 
-        for field in ("id", "format", "purpose", "filename", "url"):
+        for field in ("id", "format", "filename", "url"):
             for value in invalid_values:
                 with self.subTest(field=field, value=value):
                     data = {
@@ -94,6 +93,28 @@ class TestDatasetSource(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             DatasetSource.from_dict(data)
+
+    # ---------------------------------------------------------
+    # Unknown field validation
+    # ---------------------------------------------------------
+
+    def test_unknown_fields(self):
+        invalid_fields = {
+            "purpose": "txt",
+            "unexpected": "value",
+        }
+
+        for field, value in invalid_fields.items():
+            with self.subTest(field=field):
+                data = {
+                    **self.valid_source,
+                    field: value,
+                }
+
+                with self.assertRaisesRegex(
+                    ValueError, "Unknown source fields"
+                ):
+                    DatasetSource.from_dict(data)
 
     # ---------------------------------------------------------
     # Filename validation

@@ -36,7 +36,6 @@ class TestSourceAcquisition(unittest.TestCase):
         return DatasetSource(
             id="test-001",
             format="txt",
-            purpose="txt",
             filename=filename,
             url="https://example.org/example.txt",
             sha256=sha256,
@@ -303,7 +302,6 @@ class TestDownloaderEntryPoint(unittest.TestCase):
         source = DatasetSource(
             id="test-001",
             format="txt",
-            purpose="txt",
             filename="example.txt",
             url="https://example.org/example.txt",
             sha256=None,

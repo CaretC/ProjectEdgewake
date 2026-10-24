@@ -22,7 +22,6 @@ class TestManifest(unittest.TestCase):
         self.valid_source = {
             "id": "test-001",
             "format": "txt",
-            "purpose": "txt",
             "filename": "example.txt",
             "url": "https://example.org/example.txt",
             "sha256": None,
