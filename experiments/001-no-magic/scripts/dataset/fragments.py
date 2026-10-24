@@ -88,6 +88,11 @@ def measure_fragment(data: bytes) -> FragmentMetrics:
         for count in frequencies.values()
     )
 
+    # Normalise negative zero produced by the entropy calculation.
+    # This ensures consistent values in downstream reporting.
+    if entropy == 0.0:
+        entropy = 0.0
+
     # Printable ASCII plus common text whitespace.
     printable = sum(
         32 <= byte <= 126 or byte in (9, 10, 13)
