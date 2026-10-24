@@ -1,5 +1,5 @@
 
-"""Tests for dataset manifest loading."""
+"""Tests for dataset manifest loading and validation."""
 
 import json
 import tempfile
@@ -33,6 +33,10 @@ class TestManifest(unittest.TestCase):
             json.dumps(manifest),
             encoding="utf-8"
         )
+
+    # ---------------------------------------------------------
+    # Valid manifest definitions
+    # ---------------------------------------------------------
 
     def test_valid_manifest(self):
         self.write_manifest({
@@ -69,6 +73,10 @@ class TestManifest(unittest.TestCase):
 
         self.assertEqual(len(sources), 2)
         self.assertEqual(sources[1].id, "test-002")
+
+    # ---------------------------------------------------------
+    # Manifest structure validation
+    # ---------------------------------------------------------
 
     def test_invalid_manifest_root(self):
         self.write_manifest([])
@@ -113,6 +121,72 @@ class TestManifest(unittest.TestCase):
         )
 
         with self.assertRaises(json.JSONDecodeError):
+            load_manifest(self.path)
+
+    # ---------------------------------------------------------
+    # Collection-level validation
+    # ---------------------------------------------------------
+
+    def test_duplicate_source_ids(self):
+        second = {
+            **self.valid_source,
+            "filename": "another.txt",
+        }
+
+        self.write_manifest({
+            "sources": [self.valid_source, second]
+        })
+
+        with self.assertRaisesRegex(
+            ValueError, "Duplicate source ID"
+        ):
+            load_manifest(self.path)
+
+    def test_duplicate_source_ids_case_insensitive(self):
+        second = {
+            **self.valid_source,
+            "id": "TEST-001",
+            "filename": "another.txt",
+        }
+
+        self.write_manifest({
+            "sources": [self.valid_source, second]
+        })
+
+        with self.assertRaisesRegex(
+            ValueError, "Duplicate source ID"
+        ):
+            load_manifest(self.path)
+
+    def test_duplicate_filenames(self):
+        second = {
+            **self.valid_source,
+            "id": "test-002",
+        }
+
+        self.write_manifest({
+            "sources": [self.valid_source, second]
+        })
+
+        with self.assertRaisesRegex(
+            ValueError, "Duplicate filename"
+        ):
+            load_manifest(self.path)
+
+    def test_duplicate_filenames_case_insensitive(self):
+        second = {
+            **self.valid_source,
+            "id": "test-002",
+            "filename": "EXAMPLE.TXT",
+        }
+
+        self.write_manifest({
+            "sources": [self.valid_source, second]
+        })
+
+        with self.assertRaisesRegex(
+            ValueError, "Duplicate filename"
+        ):
             load_manifest(self.path)
 
 
