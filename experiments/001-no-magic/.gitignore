@@ -1,0 +1,13 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+
+# Experimental data
+/data/source/*
+!/data/source/.gitkeep
+
+/data/generated/*
+!/data/generated/.gitkeep
