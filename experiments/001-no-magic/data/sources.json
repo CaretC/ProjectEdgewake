@@ -8,7 +8,7 @@
       "filename": "alice.txt",
       "url": "https://www.gutenberg.org/cache/epub/11/pg11.txt",
       "source_page": "https://www.gutenberg.org/ebooks/11",
-      "sha256": null,
+      "sha256": "01b38ea4c710a84bc18d0bd41271a5a1a92b94e97b2812f4dece97d4a694725e",
       "license": "Project Gutenberg terms; public domain in USA"
     },
     {
@@ -18,7 +18,7 @@
       "filename": "frankenstein.txt",
       "url": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
       "source_page": "https://www.gutenberg.org/ebooks/84",
-      "sha256": null,
+      "sha256": "2b97b7f8aad508649481d8dd4f6b54f9b965ddb3ba634e9151c815f537b49e42", 
       "license": "Project Gutenberg terms; public domain in USA"
     },
     {
@@ -28,7 +28,7 @@
       "filename": "fronalpstock.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Fronalpstock01.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:Fronalpstock01.jpg",
-      "sha256": null,
+      "sha256": "17faf7d21c27d02b1ac04d765227c26a3e29c0fa12df0959dfd32d665d9707ed",
       "license": "CC BY-SA 3.0 / GFDL",
       "attribution": "Markus Schweiß"
     },
@@ -39,7 +39,7 @@
       "filename": "blue-marble.jpg",
       "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
       "source_page": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
-      "sha256": null,
+      "sha256": "51049ed4e34514880bfbe39d34e2dd2c56e31f55919e7f4f0b34ef1698cb9f50",
       "license": "Public domain in USA",
       "attribution": "NASA / Apollo 17 crew"
     },
@@ -50,7 +50,7 @@
       "filename": "seattle-weather.csv",
       "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3/data/seattle-weather.csv",
       "source_page": "https://vega.github.io/vega-datasets/datasets/seattle_weather/",
-      "sha256": null,
+      "sha256": "0845078a290b48e3149ab8639966824110a251db4e06fc144c06ebb534af23be",
       "license": "Public domain; U.S. Government dataset",
       "attribution": "NOAA / Vega Datasets"
     },
@@ -61,7 +61,7 @@
       "filename": "json-tool.py",
       "url": "https://raw.githubusercontent.com/python/cpython/main/Lib/json/tool.py",
       "source_page": "https://github.com/python/cpython/blob/main/Lib/json/tool.py",
-      "sha256": null,
+      "sha256": "b8eea9965a36526f582bb7f3e6e2a36a7a30221d5efa3ccdb389507f1f3f7fac",
       "license": "Python Software Foundation License",
       "attribution": "Python Software Foundation / CPython contributors"
     },
@@ -72,7 +72,7 @@
       "filename": "example.png",
       "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Example_png.png",
       "source_page": "https://commons.wikimedia.org/wiki/File:Example_png.png",
-      "sha256": null,
+      "sha256": "2b618c7b82e8c0d44424a363a436eaf01e9204d418100b2823f59d11ba0430eb",
       "license": "CC0 1.0",
       "attribution": "Mvolz"
     }
