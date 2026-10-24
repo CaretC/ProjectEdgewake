@@ -18,4 +18,5 @@ packages = [
     "scripts",
     "scripts.dataset",
     "scripts.analysis",
+    "scripts.investigations",
 ]
