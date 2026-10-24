@@ -2,7 +2,6 @@
 
 <img src="assets/banner.png" alt="001 — No Magic | File Fragment Classification" width="100%" />
 
-
 ![Status](https://img.shields.io/badge/status-active-17A398?style=flat-square)
 ![Type](https://img.shields.io/badge/type-ML%20experiment-17A398?style=flat-square)
 ![Experiment](https://img.shields.io/badge/experiment-001-17A398?style=flat-square)
@@ -19,7 +18,7 @@
 
 Can a machine-learning model identify a file's format from an arbitrary fragment of its contents, without relying on the filename, extension or identifying header?
 
-Known as *file fragment classification*, this is an established problem in digital forensics.
+Known as **file fragment classification**, this is an established problem in digital forensics.
 
 **No Magic** is a practical introduction to machine learning, comparing simple statistical methods, classical ML and small neural networks using ordinary computing hardware.
 
@@ -48,9 +47,76 @@ Training and test data will be separated by source file to reduce leakage, with 
 
 Initial experiments will run on a development laptop without requiring GPU acceleration.
 
+## Progress
+
+The first stage has focused on building a reproducible dataset and understanding the characteristics of individual file fragments.
+
+Completed so far:
+
+- Verified source acquisition with pinned SHA-256 checksums.
+- Reproducible BMP and ZIP sample generation.
+- Deterministic fragment extraction.
+- Statistical analysis and visualisation.
+- First recorded investigation.
+
+No models have been trained yet. The initial work establishes a foundation for evaluating them.
+
+## Results
+
+Each investigation records its methodology, observations, supporting data and limitations.
+
+### 001 — File Fragment Statistics
+
+**Can simple byte-level statistics distinguish fragments from different file formats?**
+
+An initial investigation of 63 fragments across TXT, JPEG, BMP and ZIP, examining Shannon entropy, printable-byte fraction and zero-byte fraction.
+
+The results show clear differences in some cases, substantial variation within others, and interesting similarities between compressed formats.
+
+**[Read Result 001 — File Fragment Statistics](results/001-fragment-statistics/README.md)**
+
+[View plots](results/001-fragment-statistics/figures/001-fragment-statistics.png) · [Raw measurements](results/001-fragment-statistics/data/001-fragment-statistics.csv)
+
+## Reproducing the Experiments
+
+No Magic uses Python with dependencies managed through `pyproject.toml`.
+
+From the experiment directory, create and activate a virtual environment:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e .
+```
+
+Prepare the dataset:
+
+```powershell
+python -m scripts.dataset.download_sources
+python -m scripts.dataset.prepare_samples
+```
+
+Run the first investigation:
+
+```powershell
+python -m scripts.investigations.result_001
+```
+
+Alternatively, reproduce the complete preparation and investigation pipeline:
+
+```powershell
+python -m scripts.investigations.result_001 --prepare
+```
+
+Run the automated tests:
+
+```powershell
+python -m unittest discover -s tests -t . -p "test_*.py" -v
+```
+
 ## Expected Outcome
 
-Reproducible dataset-generation, training and evaluation code, accompanied by a short report covering results, limitations and lessons learned.
+Reproducible dataset-generation, training and evaluation code, accompanied by short reports covering results, limitations and lessons learned.
 
 High accuracy isn't a requirement. Understanding why an approach works, fails or offers little advantage is equally useful.
 
