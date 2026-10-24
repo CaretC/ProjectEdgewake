@@ -1,4 +1,4 @@
- <div align="center">
+<div align="center">
 
 <img src="../assets/icons/experiments.png" alt="Experiments" width="110" />
 
@@ -31,9 +31,9 @@ A negative result isn't a failed project. Sometimes it's exactly the answer we n
 
 ## Experiment Index
 
-| Experiment | Investigation | Status |
-|---|---|---|
-| *Nothing here yet* | The first experiment is still to come. | — |
+| | Experiment | Investigation | Status |
+|:---:|---|---|:---:|
+| <img src="001-no-magic/assets/icon.png" alt="No Magic" width="52" /> | **[001 — No Magic](001-no-magic/README.md)** | Identifying file formats from arbitrary binary fragments using statistics, classical ML and small neural networks. | Proposed |
 
 As investigations are undertaken, they will be listed here with links to their own documentation, methodology and findings.
 
