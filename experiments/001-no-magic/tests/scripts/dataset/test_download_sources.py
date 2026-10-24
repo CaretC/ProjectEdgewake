@@ -1,36 +1,44 @@
-import json
-import tempfile
+
+"""Tests for the dataset downloader entry point."""
+
+import io
 import unittest
-from pathlib import Path
 
-from scripts.dataset.download_sources import load_manifest
+from contextlib import redirect_stdout
+from unittest.mock import patch
+
+from scripts.dataset.download_sources import main
+from scripts.dataset.source import DatasetSource
 
 
-class TestManifest(unittest.TestCase):
+class TestDownloader(unittest.TestCase):
 
-    def test_valid_manifest(self):
-        with tempfile.TemporaryDirectory() as directory:
-            path = Path(directory) / "sources.json"
+    def test_main_loads_and_reports_sources(self):
+        source = DatasetSource(
+            id="test-001",
+            format="txt",
+            purpose="txt",
+            filename="example.txt",
+            url="https://example.org/example.txt",
+            sha256=None,
+        )
 
-            manifest = {
-                "sources": [
-                    {
-                        "id": "test-001",
-                        "format": "txt",
-                        "purpose": "txt",
-                        "filename": "example.txt",
-                        "url": "https://example.org/example.txt",
-                        "sha256": None,
-                    }
-                ]
-            }
+        output = io.StringIO()
 
-            path.write_text(json.dumps(manifest), encoding="utf-8")
+        with patch(
+            "scripts.dataset.download_sources.load_manifest",
+            return_value=[source]
+        ) as mock_loader:
+            with redirect_stdout(output):
+                main()
 
-            sources = load_manifest(path)
+        mock_loader.assert_called_once()
 
-            self.assertEqual(len(sources), 1)
-            self.assertEqual(sources[0]["id"], "test-001")
+        result = output.getvalue()
+
+        self.assertIn("Loaded 1 dataset sources", result)
+        self.assertIn("test-001", result)
+        self.assertIn("example.txt", result)
 
 
 if __name__ == "__main__":

@@ -2,8 +2,9 @@
 
 """Download and verify No Magic experiment sources."""
 
-import json
 from pathlib import Path
+
+from .manifest import load_manifest
 
 
 EXPERIMENT_ROOT = Path(__file__).resolve().parents[2]
@@ -12,38 +13,16 @@ MANIFEST_PATH = DATA_DIR / "sources.json"
 SOURCE_DIR = DATA_DIR / "source"
 
 
-def load_manifest(path: Path) -> list[dict]:
-    """Load and validate the source manifest."""
+def main() -> None:
+    """Entry point for the source downloader."""
 
-    with path.open("r", encoding="utf-8") as file:
-        manifest = json.load(file)
+    sources = load_manifest(MANIFEST_PATH)
 
-    if not isinstance(manifest, dict):
-        raise ValueError("Manifest must be a JSON object")
+    print(f"Loaded {len(sources)} dataset sources.")
 
-    sources = manifest.get("sources")
+    for source in sources:
+        print(f"  [{source.id}] {source.filename}")
 
-    if not isinstance(sources, list):
-        raise ValueError("Manifest must contain a 'sources' list")
 
-    required = {
-        "id",
-        "format",
-        "purpose",
-        "filename",
-        "url",
-        "sha256",
-    }
-
-    for index, source in enumerate(sources):
-        if not isinstance(source, dict):
-            raise ValueError(f"Source {index} must be an object")
-
-        missing = required - source.keys()
-
-        if missing:
-            raise ValueError(
-                f"Source {index} missing fields: {sorted(missing)}"
-            )
-
-    return sources
+if __name__ == "__main__":
+    main()
