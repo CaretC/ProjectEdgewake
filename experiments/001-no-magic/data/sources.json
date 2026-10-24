@@ -1,3 +1,80 @@
+
 {
-  "sources": []
+  "sources": [
+    {
+      "id": "txt-alice",
+      "format": "txt",
+      "purpose": "txt",
+      "filename": "alice.txt",
+      "url": "https://www.gutenberg.org/cache/epub/11/pg11.txt",
+      "source_page": "https://www.gutenberg.org/ebooks/11",
+      "sha256": null,
+      "license": "Project Gutenberg terms; public domain in USA"
+    },
+    {
+      "id": "txt-frankenstein",
+      "format": "txt",
+      "purpose": "txt",
+      "filename": "frankenstein.txt",
+      "url": "https://www.gutenberg.org/cache/epub/84/pg84.txt",
+      "source_page": "https://www.gutenberg.org/ebooks/84",
+      "sha256": null,
+      "license": "Project Gutenberg terms; public domain in USA"
+    },
+    {
+      "id": "jpg-fronalpstock",
+      "format": "jpeg",
+      "purpose": "jpeg",
+      "filename": "fronalpstock.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/7/79/Fronalpstock01.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Fronalpstock01.jpg",
+      "sha256": null,
+      "license": "CC BY-SA 3.0 / GFDL",
+      "attribution": "Markus Schweiß"
+    },
+    {
+      "id": "bmp-blue-marble",
+      "format": "jpeg",
+      "purpose": "bmp-input",
+      "filename": "blue-marble.jpg",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+      "source_page": "https://commons.wikimedia.org/wiki/File:The_Earth_seen_from_Apollo_17.jpg",
+      "sha256": null,
+      "license": "Public domain in USA",
+      "attribution": "NASA / Apollo 17 crew"
+    },
+    {
+      "id": "zip-weather",
+      "format": "csv",
+      "purpose": "zip-input",
+      "filename": "seattle-weather.csv",
+      "url": "https://cdn.jsdelivr.net/npm/vega-datasets@3/data/seattle-weather.csv",
+      "source_page": "https://vega.github.io/vega-datasets/datasets/seattle_weather/",
+      "sha256": null,
+      "license": "Public domain; U.S. Government dataset",
+      "attribution": "NOAA / Vega Datasets"
+    },
+    {
+      "id": "zip-python",
+      "format": "py",
+      "purpose": "zip-input",
+      "filename": "json-tool.py",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Lib/json/tool.py",
+      "source_page": "https://github.com/python/cpython/blob/main/Lib/json/tool.py",
+      "sha256": null,
+      "license": "Python Software Foundation License",
+      "attribution": "Python Software Foundation / CPython contributors"
+    },
+    {
+      "id": "zip-image",
+      "format": "png",
+      "purpose": "zip-input",
+      "filename": "example.png",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/26/Example_png.png",
+      "source_page": "https://commons.wikimedia.org/wiki/File:Example_png.png",
+      "sha256": null,
+      "license": "CC0 1.0",
+      "attribution": "Mvolz"
+    }
+  ]
 }
