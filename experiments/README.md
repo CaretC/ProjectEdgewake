@@ -33,7 +33,7 @@ A negative result isn't a failed project. Sometimes it's exactly the answer we n
 
 | | Experiment | Investigation | Status |
 |:---:|---|---|:---:|
-| <img src="001-no-magic/assets/icon.png" alt="No Magic" width="52" /> | **[001 — No Magic](001-no-magic/README.md)** | Identifying file formats from arbitrary binary fragments using statistics, classical ML and small neural networks. | Proposed |
+| <img src="001-no-magic/assets/icon.png" alt="No Magic" width="52" /> | **[001 — No Magic](001-no-magic/README.md)** | Identifying file formats from arbitrary binary fragments using statistics, classical ML and small neural networks. | Active |
 
 As investigations are undertaken, they will be listed here with links to their own documentation, methodology and findings.
 

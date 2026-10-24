@@ -3,7 +3,7 @@
 <img src="assets/banner.png" alt="001 — No Magic | File Fragment Classification" width="100%" />
 
 
-![Status](https://img.shields.io/badge/status-proposed-17A398?style=flat-square)
+![Status](https://img.shields.io/badge/status-active-17A398?style=flat-square)
 ![Type](https://img.shields.io/badge/type-ML%20experiment-17A398?style=flat-square)
 ![Experiment](https://img.shields.io/badge/experiment-001-17A398?style=flat-square)
 
