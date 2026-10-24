@@ -24,6 +24,20 @@ Known as **file fragment classification**, this is an established problem in dig
 
 The aim is to understand dataset preparation, model training and evaluation rather than develop a novel forensic tool.
 
+## Why No Magic?
+
+Many file formats contain recognisable sequences of bytes known as **magic numbers** or **file signatures**. These allow tools such as the Unix `file` command to identify a file's format without relying on its extension.
+
+For example, JPEG files commonly begin with `FF D8 FF`, while ZIP archives often begin with `50 4B 03 04`.
+
+But what happens when we only have a fragment from somewhere in the middle of a file, with no identifying header?
+
+That's the idea behind **No Magic**. We deliberately remove the easy answer and investigate whether the remaining bytes tell us enough to identify the format.
+
+No magic numbers. No assumptions. Just data, measurements and a little machine learning.
+
+For more information, see the [list of file signatures](https://en.wikipedia.org/wiki/List_of_file_signatures) or the [magic(5) documentation](https://man.openbsd.org/magic.5) describing the patterns used by the `file` utility.
+
 ## What We'll Explore
 
 - Creating labelled datasets from known file formats.
