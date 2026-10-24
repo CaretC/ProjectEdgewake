@@ -1,0 +1,8 @@
+# Downloaded and generated datasets
+/data/source/
+/data/generated/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
