@@ -1,0 +1,24 @@
+
+{
+  "outputs": [
+    {
+      "id": "bmp-blue-marble",
+      "type": "bmp",
+      "source": "bmp-blue-marble",
+      "filename": "blue-marble.bmp",
+      "mode": "RGB"
+    },
+    {
+      "id": "zip-mixed",
+      "type": "zip",
+      "sources": [
+        "zip-weather",
+        "zip-python",
+        "zip-image"
+      ],
+      "filename": "mixed-content.zip",
+      "compression": "deflate",
+      "compresslevel": 6
+    }
+  ]
+}
