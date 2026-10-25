@@ -63,7 +63,7 @@ Initial experiments will run on a development laptop without requiring GPU accel
 
 ## Progress
 
-The first stage has focused on building a reproducible dataset and understanding the characteristics of individual file fragments.
+The initial work has focused on building a reproducible data-preparation pipeline, understanding the characteristics of individual file fragments and establishing a defensible experimental methodology.
 
 Completed so far:
 
@@ -71,9 +71,13 @@ Completed so far:
 - Reproducible BMP and ZIP sample generation.
 - Deterministic fragment extraction.
 - Statistical analysis and visualisation.
-- First recorded investigation.
+- **Result 001:** Initial fragment statistics and observations.
 
-No models have been trained yet. The initial work establishes a foundation for evaluating them.
+Currently investigating:
+
+- **Result 002:** Dataset design, source independence, sampling strategy and dataset-size justification.
+
+No models have been trained yet. The current work establishes the data and evaluation foundations needed to investigate them reliably.
 
 ## Results
 
@@ -90,6 +94,20 @@ The results show clear differences in some cases, substantial variation within o
 **[Read Result 001 — File Fragment Statistics](results/001-fragment-statistics/README.md)**
 
 [View plots](results/001-fragment-statistics/figures/001-fragment-statistics.png) · [Raw measurements](results/001-fragment-statistics/data/001-fragment-statistics.csv)
+
+### 002 — Dataset Design and Construction
+
+**How can we construct a reproducible dataset that supports credible file-fragment classification across independent files?**
+
+Building on the observations from Result 001, this investigation examines how we select, sample and organise the data used in subsequent machine-learning experiments.
+
+The investigation considers the justification for our four file formats and 4 KiB fragments, source-file independence, dataset diversity and the statistical reasoning behind dataset size.
+
+The objective is not simply to collect more data, but to establish a defensible and reproducible foundation for training and evaluating classifiers.
+
+**Status: In progress** — Initial scope, hypotheses and methodological rationale established. Dataset sizing, sampling investigations and corpus construction will follow.
+
+**[Read Result 002 — Dataset Design and Construction](results/002-data-design/README.md)**
 
 ## Reproducing the Experiments
 
