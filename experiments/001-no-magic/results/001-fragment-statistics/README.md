@@ -337,11 +337,19 @@ We have not demonstrated that these three measurements can reliably identify arb
 
 For an experiment called **No Magic**, that feels like an appropriate first result.
 
-### Next question
+## What Comes Next?
 
-**Do these statistical patterns persist across multiple independent files of each format, or are we mostly learning about the particular specimens we selected?**
+This initial investigation examined 63 fragments drawn from just four individual source files. While the measurements reveal some interesting differences between the selected formats, they do not establish whether those differences are representative of the formats more generally.
 
-That seems worth investigating before we begin training a model.
+That leaves an important question:
+
+**Do these statistical patterns persist across independent files of each format, or are we primarily observing characteristics of the particular specimens we selected?**
+
+Before attempting classification, we need a dataset capable of investigating that question meaningfully.
+
+**Result 002 — Dataset Design and Construction** will examine how we select representative source files, justify dataset size and diversity, account for dependencies between samples, and establish reproducible sampling procedures.
+
+The objective is not simply to collect more fragments, but to understand what constitutes sufficient evidence for the experiments that follow.
 
 ## References
 
